@@ -10,7 +10,7 @@ body {
      background-color: #edeef0;
 }
 .container{
-     width: 90%;
+     width: 80%;
      margin: 0 auto;
 }
 header{
@@ -64,8 +64,9 @@ nav{
 
 .lesson__list{
      display: grid;
-     grid-gap: 32px;
-     grid-template-columns: repeat(2, 50%);
+     width: 100%;
+     gap: 48px;
+     grid-template-columns: repeat(3, 1fr);
 }
 
 .lesson__item{
@@ -169,9 +170,6 @@ nav{
      font-weight: 400;
 }
 
-.half{
-     width: 50%;
-}
 
 .teacher__title{
      margin-top: 6px;
@@ -188,5 +186,74 @@ nav{
 }
 
 @media screen and (max-width: 768px) {
-     
+     .container{
+          width: 90%;
+     }
+     .lesson__list{
+          grid-template-columns: repeat(2, calc(50% - 16px));
+     }
+     .lesson__header h3{
+          font-size: 26px;
+     }
+     .clock{
+          font-size: 16px;
+     }
+     .time__item{
+          font-size: 12px;
+     }
+     .teacher__title{
+          font-size: 14px;
+     }
+     .teachers{
+          font-size: 12px;
+     }
+}
+
+@media screen and (max-width: 540px) {
+     .container{
+          width: 90%;
+     }
+     .lesson__list{
+          grid-template-columns: 100%;
+     }
+     .lesson__header h3{
+          font-size: 30px;
+          margin-bottom: 12px;
+     }
+     .clock{
+          font-size: 20px;
+     }
+     .time__item{
+          font-size: 14px;
+     }
+     .teacher__title{
+          font-size: 16px;
+     }
+     .teachers{
+          font-size: 14px;
+     }
+}
+
+@media screen and (max-width: 360px) {
+     .container{
+          width: 90%;
+     }
+     .lesson__list{
+          grid-template-columns: 100%;
+     }
+     .lesson__header h3{
+          font-size: 26px;
+     }
+     .clock{
+          font-size: 16px;
+     }
+     .time__item{
+          font-size: 12px;
+     }
+     .teacher__title{
+          font-size: 14px;
+     }
+     .teachers{
+          font-size: 12px;
+     }
 }
