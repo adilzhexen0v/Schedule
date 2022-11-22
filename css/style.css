@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+* {
+     margin: 0;
+     padding: 0;
+     font-family: 'Comfortaa', cursive;
+     color: #232323;
+}
+body {
+     background-color: #edeef0;
+}
+.container{
+     width: 90%;
+     margin: 0 auto;
+}
+header{
+     padding: 12px 20px;
+     background-color: #fff;
+     box-shadow: 4px 4px 8px 0px rgba(2, 2, 2, 0.2);
+}
+nav{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.nav__part{
+     font-size: 20px;
+     color: #4ecb71;
+     font-weight: 700;
+     letter-spacing: 0.04em;
+}
+
+.logo{
+     width: 64px;
+}
+
+#menu__btn{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+#menu__btn:hover{
+     cursor: pointer;
+}
+
+#menu__btn i {
+     font-size: 32px;
+     font-weight: 500;
+     color: #4ecb71;
+}
+
+.day{
+     font-size: 32px;
+     font-weight: 700;
+     text-align: center;
+     margin-bottom: 16px;
+}
+
+.day__block{
+     margin-top: 40px;
+}
+
+.lesson__list{
+     display: grid;
+     grid-gap: 32px;
+     grid-template-columns: repeat(2, 50%);
+}
+
+.lesson__item{
+     
+     border-radius: 16px;
+     background-color: #fff;
+     box-shadow: 4px 4px 8px 0px rgba(2, 2, 2, 0.2);
+}
+
+.lesson__item h3{
+     text-align: center;
+     font-size: 30px;
+     color: white;
+     margin-bottom: 12px;
+     position: relative;
+     z-index: 10;
+}
+
+.lesson__header{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     position: relative;
+     background-color: #4ecb71;
+     padding: 12px 20px;
+     margin-bottom: 20px;
+}
+
+.lesson__body{
+     padding: 12px 20px;
+}
+
+.clock{
+     position: absolute;
+     color: white;
+     font-weight: 700;
+     font-size: 20px;
+     bottom: -30px;
+     padding: 20px;
+     background-color: #4ecb71;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 100%;
+     z-index: 1;
+}
+.clock i{
+     color: white;
+     margin-right: 8px;
+     font-weight: 500;
+}
+
+.clock span{
+     color: white;
+     margin: 0 8px;
+     font-weight: 700;
+}
+
+.opacity{
+     opacity: 0.5;
+}
+
+.time__list{
+     display: flex;
+     align-items: center;
+     margin-top: 8px;
+}
+
+.time__list:nth-child(even){
+     justify-content: flex-end;
+}
+
+.time__list:nth-child(even) .time__item{
+     background-color: #fefefe;
+     color: #4ecb71;
+}
+
+.time__list:nth-child(even) .time__item i{
+     color: #4ecb71;
+}
+
+.time__list:nth-child(odd){
+     justify-content: flex-start;
+}
+
+.time__item{
+     display: inline-block;
+     padding: 4px 8px;
+     border-radius: 8px;
+     background-color: #4ecb71;
+     box-shadow: 4px 4px 8px 0px rgba(2, 2, 2, 0.2);
+     color: white;
+     font-weight: 700;
+     font-size: 14px;
+     font-weight: 500;
+}
+
+.time__item i {
+     margin-right: 8px;
+     color: white;
+     font-weight: 400;
+}
+
+.half{
+     width: 50%;
+}
+
+.teacher__title{
+     margin-top: 6px;
+     font-size: 16px;
+     font-weight: 700;
+}
+
+.teachers{
+     margin-left: 12px;
+     list-style-type: "- ";
+     margin-top: 8px;
+     font-size: 14px;
+     color: #585858;
+}
+
+@media screen and (max-width: 768px) {
+     
+}
