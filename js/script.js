@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', () => {
      const lessonListThursday = document.querySelector('#thursday__list');
      const lessonListFriday = document.querySelector('#friday__list');
 
-     getResource('db.json').then(
+     getResource('./db/db.json').then(
           data => {
                createList(data.monday, lessonListMonday);
                createList(data.tuesday, lessonListTuesday);
