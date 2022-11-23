@@ -1,65 +1,13 @@
 window.addEventListener('DOMContentLoaded', () => {
-     const monday = [
-          {
-               title: 'Торжественная линейка',
-               date: new Date(2022, 11, 28, 8, 15),
-               classes: '5-11 классы',
-               teachers: ['Тулендинова К.Ж', 'Фаткулина Л.И', 'Мусабекова Ж.А', 'Жагалбайлинова У.К', 'Хамзин Р.А'],
-               place: 'Актовый зал',
-               type: 'Линейка'
-          },
-          {
-               title: '"Кім жылдам?"',
-               date: new Date(2022, 11, 28, 10, 5),
-               classes: '7"A"-11"A" классы',
-               teachers: ['Мусабекова Ж.А'],
-               place: 'Кабинет №27',
-               type: 'Переменка'
-          },
-          {
-               title: '"Математическая карусель"',
-               date: new Date(2022, 11, 28, 13, 45),
-               classes: '5"Б"-6"Б" классы',
-               teachers: ['Жагалбайлинова У.К'],
-               place: 'Актовый зал',
-               type: 'Внеклассное мероприятие'
+     async function getResource(url) {
+          let res = await fetch(url);
+      
+          if (!res.ok) {
+              throw new Error(`Could not fetch ${url}, status: ${res.status}`);
           }
-     ];
-
-     const tuesday = [
-          {
-               title: '"Путешествие в мир физики"',
-               date: new Date(2022, 11, 29, 10, 5),
-               classes: '9"Б"-11"Б" классы',
-               teachers: ['Фаткулина Л.И'],
-               place: 'Кабинет №34',
-               type: 'Переменка'
-          },
-          {
-               title: '"Кім шапшаң?"',
-               date: new Date(2022, 11, 29, 10, 5),
-               classes: '5"А"-11"А" классы',
-               teachers: ['Тулендинова К.Ж'],
-               place: 'Кабинет №40',
-               type: 'Переменка'
-          },
-          {
-               title: '"Информатика мейрамханасы"',
-               date: new Date(2022, 11, 29, 14, 0),
-               classes: '9"А" сыныбы',
-               teachers: ['Мусабекова Ж.А'],
-               place: 'Кабинет №27',
-               type: 'Сыныптан тыс іс-шара'
-          },
-          {
-               title: '"Последний герой"',
-               date: new Date(2022, 11, 29, 14, 35),
-               classes: '7"Б"-8"Б" классы',
-               teachers: ['Фаткулина Л.И'],
-               place: 'Кабинет №34',
-               type: 'Внеклассное мероприятие '
-          },
-     ];
+      
+          return await res.json();
+      }
 
      const getZero = (num) => {
           if(num < 10) {
@@ -71,7 +19,10 @@ window.addEventListener('DOMContentLoaded', () => {
      const createCard = (obj, list) => {
           const card = document.createElement('div');
           card.classList.add('lesson__item');
-          if (new Date() > obj.date) {
+          
+          const date = new Date(obj.date);
+          
+          if (new Date() > date) {
                card.classList.add('opacity');
           }
           card.innerHTML = `
@@ -79,10 +30,10 @@ window.addEventListener('DOMContentLoaded', () => {
                     <h3>${obj.title}</h3>
                     <div class="clock">
                          <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                         ${getZero(obj.date.getDate())}:${getZero(obj.date.getMonth())}
+                         ${getZero(date.getDate())}.${getZero(date.getMonth() + 1)}
                          <span>|</span>
                          <i class="fa fa-clock-o" aria-hidden="true"></i>
-                         ${getZero(obj.date.getHours())}:${getZero(obj.date.getMinutes())}
+                         ${getZero(date.getHours())}:${getZero(date.getMinutes())}
                     </div>
                </div>
                <div class="lesson__body">
@@ -123,6 +74,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
      const lessonListMonday = document.querySelector('#monday__list');
      const lessonListTuesday = document.querySelector('#tuesday__list');
-     createList(monday, lessonListMonday);
-     createList(tuesday, lessonListTuesday);
+     const lessonListWednesday = document.querySelector('#wednesday__list');
+     const lessonListThursday = document.querySelector('#thursday__list');
+     const lessonListFriday = document.querySelector('#friday__list');
+
+     getResource('db.json').then(
+          data => {
+               createList(data.monday, lessonListMonday);
+               createList(data.tuesday, lessonListTuesday);
+               createList(data.wednesday, lessonListWednesday);
+               createList(data.thursday, lessonListThursday);
+               createList(data.friday, lessonListFriday);
+          }
+     );
 });
